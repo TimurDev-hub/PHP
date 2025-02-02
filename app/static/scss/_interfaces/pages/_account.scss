@@ -1,0 +1,157 @@
+@use "../../_resources/tokens/colors" as color;
+@use "../../_resources/tokens/variables" as var;
+
+@use "../../_resources/mixins/display" as display;
+@use "../../_resources/mixins/size" as size;
+@use "../../_resources/mixins/font" as font;
+@use "../../_resources/mixins/media" as media;
+
+.account {
+	@include display.flexContainer(column, nowrap, flex-start, center);
+	@include size.objectSize(100%, fit-content);
+
+	.account__header-section {
+		@include size.objectSize(100%, calc(15vw + 15vh));
+		position: fixed;
+		z-index: 1;
+		background-image: url("/app/static/img/header.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+
+		.account__header-background {
+			@include display.flexContainer(row, nowrap, center, center);
+			@include size.objectSize(100%, 100%);
+			background: linear-gradient(to bottom right, color.$mainColorGreen, color.$mainColorBlue, color.$mainColorYellow);
+
+			.account__header-content {
+				@include size.objectSize(75%, 100%);
+				padding: 0 calc(1vw + 1vh);
+				background-color: color.$mainBackgroundColor;
+
+				@include media.mediaQuery(max-width, 1281px) {
+					width: 80%;
+				}
+
+				@include media.mediaQuery(max-width, 961px) {
+					width: 90%;
+				}
+
+				@include media.mediaQuery(max-width, 811px) {
+					width: 95%;
+				}
+			}
+		}
+	}
+
+	.account__main-section {
+		@include display.flexContainer(row, nowrap, space-around, flex-start);
+		@include size.objectSize(75%, fit-content);
+		background-color: color.$mainBackgroundColor;
+		min-height: 100vh;
+
+		@include media.mediaQuery(max-width, 1281px) {
+			width: 80%;
+		}
+
+		@include media.mediaQuery(max-width, 961px) {
+			width: 90%;
+		}
+
+		@include media.mediaQuery(max-width, 811px) {
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: center;
+			width: 95%;
+		}
+
+		.account__main-container {
+			@include display.flexContainer(column, nowrap, center, center);
+			@include size.objectSize(43%, fit-content);
+			margin-top: calc(6vw + 6vh);
+			padding: calc(1vw + 1vh);
+			z-index: 2;
+			border-radius: calc(1vw + 1vh);
+			border: calc(.2vw + .2vh) solid color.$borderColorWhite;
+
+			@include media.mediaQuery(max-width, 811px) {
+				width: 70%;
+			}
+
+			@include media.mediaQuery(max-width, 641px) {
+				width: 80%;
+			}
+
+			@include media.mediaQuery(max-width, 541px) {
+				width: 95%;
+			}
+
+			h2 {
+				@include font.extendedFontConfig('RoundedMplusRegular', normal, color.$whiteColor, calc(1.2vw + 1.2vh), 500);
+				margin-bottom: calc(.5vw + .5vh);
+
+				@include media.mediaQuery(max-width, 811px) {
+					font-size: calc(1.5vw + 1.5vh);
+				}
+
+				@include media.mediaQuery(max-width, 641px) {
+					font-size: calc(1.7vw + 1.7vh);
+				}
+			}
+
+			.account__inputs-form {
+				@include display.flexContainer(column, nowrap, center, center);
+				@include size.objectSize(100%, 100%);
+
+				input[type=text], input[type=password], input[type=email] {
+					@include size.proportionalObjectSize(90%, 8);
+					@include font.extendedFontConfig('RoundedMplusRegular', normal, color.$mainPlaceholderColor, calc(.9vw + .9vh), 400);
+					margin: calc(.3vw + .3vh) 0;
+					padding-left: calc(1vw + 1vh);
+					border: calc(.2vw + .2vh) solid transparent;
+					border-radius: calc(.5vw + .5vh);
+					background-color: color.$whiteColor;
+
+					@include media.mediaQuery(max-width, 811px) {
+						font-size: calc(1.2vw + 1.2vh);
+					}
+
+					@include media.mediaQuery(max-width, 641px) {
+						font-size: calc(1.4vw + 1.4vh);
+					}
+				}
+
+				input[type=submit] {
+					@include size.proportionalObjectSize(60%, 6);
+					@include font.extendedFontConfig('RoundedMplusRegular', normal, color.$mainPlaceholderColor, calc(1vw + 1vh), 500);
+					margin-top: calc(.5vw + .5vh);
+					border-radius: calc(.5vw + .5vh);
+					background-color: color.$whiteColorOp;
+					transition-property: box-shadow, background-color;
+					transition-duration: var.$transitionDurationShort, var.$transitionDurationShort;
+
+					@include media.mediaQuery(max-width, 811px) {
+						font-size: calc(1.3vw + 1.3vh);
+					}
+
+					@include media.mediaQuery(max-width, 641px) {
+						font-size: calc(1.5vw + 1.5vh);
+					}
+
+					&:hover {
+						box-shadow: 0 0 calc(.75vw + .75vh) color.$greenColor;
+						background-color: color.$greenColor;
+						cursor: pointer;
+					}
+				}
+			}
+		}
+
+		.login-container {
+			background: linear-gradient(to bottom right, color.$authFormPink, color.$authFormPurple, color.$authFormBlue);
+		}
+
+		.registration-container {
+			background: linear-gradient(to bottom right, color.$authFormBlue, color.$authFormPurple, color.$authFormPink);
+		}
+	}
+}

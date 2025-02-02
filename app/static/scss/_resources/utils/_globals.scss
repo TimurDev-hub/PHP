@@ -1,0 +1,37 @@
+@use "../../_resources/tokens/colors" as color;
+@use "../../_resources/tokens/variables" as var;
+
+@use "../../_resources/mixins/display" as display;
+@use "../../_resources/mixins/size" as size;
+@use "../../_resources/mixins/font" as font;
+@use "../../_resources/mixins/media" as media;
+
+html {
+	scrollbar-gutter: stable;
+	scrollbar-width: none;
+}
+
+img, video {
+	max-width: 100%;
+	display: block;
+	height: auto;
+}
+
+body {
+	@include size.objectSize(100%, 100%);
+	background-color: color.$whiteColor;
+}
+
+.global__process-messages {
+	@include size.objectSize(100%, fit-content);
+	margin-top: calc(.5vw + .5vh);
+	padding: calc(.5vw + .5vh);
+	border: calc(.2vw + .2vh) solid color.$yellowWarning;
+	border-radius: calc(.5vw + .5vh);
+	background-color: color.$whiteColor;
+
+	.messages__standart {
+		@include font.extendedFontConfig('RoundedMplusMedium', normal, color.$yellowWarning, calc(.2vw + .2vh), 500);
+		line-height: 130%;
+	}
+}

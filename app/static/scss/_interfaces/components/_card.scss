@@ -1,0 +1,85 @@
+@use "../../_resources/tokens/colors" as color;
+@use "../../_resources/tokens/variables" as var;
+
+@use "../../_resources/mixins/display" as display;
+@use "../../_resources/mixins/size" as size;
+@use "../../_resources/mixins/font" as font;
+@use "../../_resources/mixins/media" as media;
+
+.card {
+	@include display.flexContainer(column, nowrap, flex-start, flex-start);
+	@include size.objectSize(31%, fit-content);
+	margin: calc(1vw + 1vh) 0;
+	padding: calc(1vw + 1vh);
+	background-color: color.$cardBackgroundColor;
+	border-radius: calc(.5vw + .5vh);
+	border: calc(.16vw + .16vh) solid color.$mainBackgroundColor;
+
+	@include media.mediaQuery(max-width, 811px) {
+		flex-wrap: wrap;
+		width: 45%;
+	}
+
+	@include media.mediaQuery(max-width, 541px) {
+		width: 95%;
+	}
+
+	.card__header-img {
+		@include size.proportionalObjectSize(100%, 1.6);
+		margin-bottom: calc(1vw + 1vh);
+		border: calc(.2vw + .2vh) solid color.$mainBackgroundColor;
+		background-size: cover;
+		background-repeat: no-repeat;
+		border-radius: calc(.5vw + .5vh);
+	}
+
+	.card__container {
+		@include size.objectSize(100%, fit-content);
+		padding: calc(.5vw + .5vh);
+		border-radius: calc(.5vw + .5vh);
+		background-color: color.$cardBorderColor;
+
+		.card__text {
+			@include font.extendedFontConfig('RoundedMplusRegular', normal, color.$blackColor, calc(.75vw + .75vh), 400);
+			line-height: 125%;
+
+			@include media.mediaQuery(max-width, 811px) {
+				font-size: calc(1vw + 1vh);
+			}
+
+			@include media.mediaQuery(max-width, 541px) {
+				font-size: calc(1.5vw + 1.5vh);
+			}
+		}
+
+		.card__button-wrapper {
+			@include display.flexContainer(row, nowrap, center, center);
+			@include size.objectSize(100%, fit-content);
+			margin-top: calc(.25vw + .25vh);
+			border-top: calc(.2vw + .2vh) solid color.$mainBackgroundColor;
+
+			.card__button {
+				@include font.extendedFontConfig(monospace, italic, color.$whiteColor, calc(1.2vw + 1.2vh), 500);
+				margin-top: calc(.5vw + .5vh);
+				padding: calc(.3vw + .3vh) calc(1.2vw + 1.2vh);
+				border-radius: calc(.5vw + .5vh);
+				background: linear-gradient(to bottom right, color.$cardButtonColorF, color.$cardButtonColorS);
+				transition-property: box-shadow;
+				transition-duration: var.$transitionDurationShort;
+
+				@include media.mediaQuery(max-width, 811px) {
+					font-size: calc(1.5vw + 1.5vh);
+				}
+
+				@include media.mediaQuery(max-width, 541px) {
+					font-size: calc(2.5vw + 2.5vh);
+				}
+	
+				&:hover {
+					box-shadow: 0 0 calc(.75vw + .75vh) color.$cardButtonHoverColor;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}

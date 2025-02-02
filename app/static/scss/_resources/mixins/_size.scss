@@ -1,0 +1,9 @@
+@mixin objectSize($width, $height) {
+	width: $width;
+	height: $height;
+}
+
+@mixin proportionalObjectSize($width, $proportion) {
+	width: $width;
+	aspect-ratio: $proportion;
+}

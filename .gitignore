@@ -1,0 +1,17 @@
+# app environment
+.env
+app/src/core/config/env.php
+
+# node.js dependencies
+node_modules/
+package-lock.json
+
+# php dependencies
+vendor/
+composer.lock
+
+# downloadable static files
+app/static/img/uploads/*
+
+# map-files
+*.map

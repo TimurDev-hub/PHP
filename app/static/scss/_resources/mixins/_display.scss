@@ -1,0 +1,17 @@
+@mixin flexContainer($flex-direction, $flex-wrap, $justify-content, $align-items) {
+	display: flex;
+	flex-direction: $flex-direction;
+	flex-wrap: $flex-wrap;
+	justify-content: $justify-content;
+	align-items: $align-items;
+}
+
+@mixin extendedFlexContainer($flex-direction, $flex-wrap, $justify-content, $align-items, $width, $height) {
+	display: flex;
+	flex-direction: $flex-direction;
+	flex-wrap: $flex-wrap;
+	justify-content: $justify-content;
+	align-items: $align-items;
+	width: $width;
+	height: $height;
+}

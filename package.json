@@ -1,0 +1,16 @@
+{
+  "name": "concept-a",
+  "version": "1.0.1",
+  "main": "index.js",
+  "scripts": {
+    "C:css": "npx sass app/static/scss/style.scss app/static/css/style.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "sass": "^1.80.6",
+    "typescript": "^5.7.2"
+  }
+}

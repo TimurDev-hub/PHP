@@ -1,0 +1,356 @@
+@use "../../_resources/tokens/colors" as color;
+@use "../../_resources/tokens/variables" as var;
+
+@use "../../_resources/mixins/display" as display;
+@use "../../_resources/mixins/size" as size;
+@use "../../_resources/mixins/font" as font;
+@use "../../_resources/mixins/media" as media;
+
+.profile {
+	@include display.flexContainer(column, nowrap, flex-start, center);
+	@include size.objectSize(100%, fit-content);
+
+	.profile__header-section {
+		@include size.objectSize(100%, fit-content);
+		background-image: url("/app/static/img/header.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+
+		.profile__header-background {
+			@include display.flexContainer(row, nowrap, center, flex-start);
+			@include size.objectSize(100%, fit-content);
+			background: linear-gradient(to bottom right, color.$mainColorGreen, color.$mainColorBlue, color.$mainColorYellow);
+
+			.profile__header-container{
+				@include display.flexContainer(row, nowrap, center, flex-start);
+				@include size.objectSize(75%, fit-content);
+				padding: 0 calc(1vw + 1vh);
+				background-color: color.$mainBackgroundColor;
+
+				@include media.mediaQuery(max-width, 1281px) {
+					width: 80%;
+				}
+
+				@include media.mediaQuery(max-width, 961px) {
+					width: 90%;
+				}
+
+				@include media.mediaQuery(max-width, 811px) {
+					width: 95%;
+				}
+
+				.profile__user-content {
+					@include size.objectSize(fit-content, fit-content);
+					margin: calc(5vw + 5vh) 0 calc(2vw + 2vh) 0;
+					padding: calc(.4vw + .4vh) calc(.8vw + .8vh);
+					border-radius: calc(.5vw + .5vh);
+					background-color: color.$borderColorWhiteOp;
+
+					h1 {
+						@include font.extendedFontConfig(monospace, normal, color.$whiteColor, calc(2.7vw + 2.7vh), 600);
+						text-align: center;
+					}
+				}
+			}
+		}
+	}
+
+	.profile__main-section {
+		@include display.flexContainer(row, nowrap, center, flex-start);
+		@include size.objectSize(75%, fit-content);
+		min-height: 100vh;
+		padding: 0 calc(1vw + 1vh);
+		background-color: color.$mainBackgroundColor;
+
+		@include media.mediaQuery(max-width, 1281px) {
+			width: 80%;
+		}
+
+		@include media.mediaQuery(max-width, 961px) {
+			width: 90%;
+		}
+
+		@include media.mediaQuery(max-width, 811px) {
+			width: 95%;
+		}
+
+		.profile__main-container{
+			@include display.flexContainer(row, nowrap, space-between, flex-start);
+			@include size.objectSize(100%, 100%);
+
+			@include media.mediaQuery(max-width, 1025px) {
+				flex-wrap: wrap;
+			}
+
+			@include media.mediaQuery(max-width, 811px) {
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: center;
+			}
+
+			.profile__user-bar {
+				@include display.flexContainer(column, nowrap, center, center);
+				@include size.objectSize(31%, fit-content);
+				margin-top: calc(1vw + 1vh);
+				padding: calc(1vw + 1vh);
+				border-radius: calc(1vw + 1vh);
+				border: calc(.2vw + .2vh) solid color.$borderColorWhite;
+				background: linear-gradient(to bottom right, color.$authFormPink, color.$authFormPurple, color.$authFormBlue);
+
+				@include media.mediaQuery(max-width, 1025px) {
+					width: 45%;
+				}
+
+				@include media.mediaQuery(max-width, 811px) {
+					width: 70%;
+				}
+
+				@include media.mediaQuery(max-width, 641px) {
+					width: 80%;
+				}
+
+				@include media.mediaQuery(max-width, 541px) {
+					width: 95%;
+				}
+
+				.profile__inputs-form {
+					@include display.flexContainer(column, nowrap, center, center);
+					@include size.objectSize(100%, fit-content);
+	
+					.profile__inputs-form--line-container {
+						@include display.flexContainer(row, nowrap, space-between, center);
+						@include size.objectSize(100%, fit-content);
+						@include font.extendedFontConfig('RoundedMplusRegular', normal, color.$whiteColor, calc(.9vw + .9vh), 550);
+
+						@include media.mediaQuery(max-width, 811px) {
+							font-size: calc(1.6vw + 1.6vh);
+						}
+	
+						input[type=text], input[type=email] {
+							@include size.proportionalObjectSize(75%, 6);
+							@include font.extendedFontConfig('RoundedMplusRegular', normal, color.$mainPlaceholderColor, calc(.8vw + .8vh), 450);
+							margin: calc(.3vw + .3vh) 0;
+							padding-left: calc(.6vw + .6vh);
+							border: calc(.2vw + .2vh) solid transparent;
+							border-radius: calc(.5vw + .5vh);
+							background-color: color.$whiteColorOp;
+
+							@include media.mediaQuery(max-width, 811px) {
+								font-size: calc(1.5vw + 1.5vh);
+							}
+						}
+					}
+	
+					input[type=submit] {
+						@include size.proportionalObjectSize(60%, 5);
+						@include font.extendedFontConfig('RoundedMplusRegular', normal, color.$mainPlaceholderColor, calc(.9vw + .9vh), 600);
+						margin: calc(.3vw + .3vh) 0;
+						border-radius: calc(.5vw + .5vh);
+						background-color: color.$whiteColorOp;
+						transition-property: background-color;
+						transition-duration: var.$transitionDurationShort;
+
+						@include media.mediaQuery(max-width, 811px) {
+							font-size: calc(1.6vw + 1.6vh)
+						}
+					}
+	
+					.save-button {
+						&:hover {
+							background-color: color.$yellowColor;
+							cursor: pointer;
+						}
+					}
+	
+					.out-button {
+						&:hover {
+							background-color: color.$errorRed;
+							cursor: pointer;
+						}
+					}
+				}
+			}
+
+			.admin__controlbar {
+				@include display.flexContainer(column, nowrap, center, center);
+				@include size.objectSize(31%, fit-content);
+				margin-top: calc(1vw + 1vh);
+				padding: calc(1vw + 1vh);
+				border-radius: calc(1vw + 1vh);
+				border: calc(.2vw + .2vh) solid color.$borderColorWhite;
+				background: linear-gradient(to bottom right, color.$authFormPink, color.$authFormPurple, color.$authFormBlue);
+
+				@include media.mediaQuery(max-width, 1025px) {
+					width: 45%;
+				}
+
+				@include media.mediaQuery(max-width, 811px) {
+					width: 70%;
+				}
+
+				@include media.mediaQuery(max-width, 641px) {
+					width: 80%;
+				}
+
+				@include media.mediaQuery(max-width, 541px) {
+					width: 95%;
+				}
+
+				h2 {
+					@include font.extendedFontConfig('RoundedMplusRegular', normal, color.$whiteColor, calc(.95vw + .95vh), 600);
+					margin-bottom: calc(.3vw + .3vh);
+
+					@include media.mediaQuery(max-width, 811px) {
+						font-size: calc(1.8vw + 1.8vh);
+						margin-bottom: calc(.6vw + .6vh);
+					}
+				}
+
+				.admin__controlbar-form--search {
+					@include display.flexContainer(row, nowrap, space-between, center);
+					@include size.objectSize(93%, fit-content);
+					margin-bottom: calc(.3vw + .3vh);
+
+					@include media.mediaQuery(max-width, 811px) {
+						margin-bottom: calc(.6vw + .6vh);
+					}
+
+					.search__input {
+						@include size.proportionalObjectSize(47%, 4);
+						@include font.extendedFontConfig('RoundedMplusRegular', normal, color.$mainPlaceholderColor, calc(.6vw + .6vh), 400);
+						padding-left: calc(.3vw + .3vh);
+						border: calc(.2vw + .2vh) solid transparent;
+						border-radius: calc(.5vw + .5vh);
+						background-color: color.$whiteColorOp;
+
+						@include media.mediaQuery(max-width, 811px) {
+							font-size: calc(1.4vw + 1.4vh);
+						}
+					}
+
+					.search__submit {
+						@include size.proportionalObjectSize(47%, 4);
+						@include font.extendedFontConfig('RoundedMplusRegular', normal, color.$mainPlaceholderColor, calc(.6vw + .6vh), 600);
+						border-radius: calc(.5vw + .5vh);
+						background-color: color.$whiteColorOp;
+						transition-property: background-color;
+						transition-duration: var.$transitionDurationShort;
+
+						@include media.mediaQuery(max-width, 811px) {
+							font-size: calc(1.6vw + 1.6vh);
+						}
+
+						&:hover {
+							background-color: color.$yellowColor;
+							cursor: pointer;
+						}
+					}
+				}
+
+				.admin__controlbar-form {
+					@include display.flexContainer(column, nowrap, center, center);
+					@include size.objectSize(100%, fit-content);
+
+					.form__file {
+						@include size.proportionalObjectSize(93%, 9);
+						@include font.extendedFontConfig('RoundedMplusRegular', normal, color.$mainPlaceholderColor, calc(.5vw + .5vh), 400);
+						margin-bottom: calc(.3vw + .3vh);
+						padding-left: calc(.5vw + .5vh);
+						border: calc(.2vw + .2vh) solid transparent;
+						border-radius: calc(.5vw + .5vh);
+						background-color: color.$whiteColorOp;
+
+						@include media.mediaQuery(max-width, 811px) {
+							font-size: calc(1.4vw + 1.4vh);
+							margin-bottom: calc(.6vw + .6vh);
+						}
+					}
+
+					.input-normal {
+						@include size.proportionalObjectSize(93%, 9);
+						@include font.extendedFontConfig('RoundedMplusRegular', normal, color.$mainPlaceholderColor, calc(.7vw + .7vh), 400);
+						margin-bottom: calc(.3vw + .3vh);
+						padding-left: calc(.7vw + .7vh);
+						border: calc(.2vw + .2vh) solid transparent;
+						border-radius: calc(.5vw + .5vh);
+						background-color: color.$whiteColorOp;
+
+						@include media.mediaQuery(max-width, 811px) {
+							font-size: calc(1.4vw + 1.4vh);
+							margin-bottom: calc(.6vw + .6vh);
+						}
+					}
+
+					.controlbar__inputs-group {
+						@include display.flexContainer(row, nowrap, space-between, center);
+						@include size.objectSize(93%, fit-content);
+						margin-bottom: calc(.3vw + .3vh);
+
+						@include media.mediaQuery(max-width, 811px) {
+							margin-bottom: calc(.6vw + .6vh);
+						}
+
+						.input-normal__short {
+							@include size.proportionalObjectSize(47%, 4);
+							@include font.extendedFontConfig('RoundedMplusRegular', normal, color.$mainPlaceholderColor, calc(.6vw + .6vh), 350);
+							padding-left: calc(.3vw + .3vh);
+							border: calc(.2vw + .2vh) solid transparent;
+							border-radius: calc(.5vw + .5vh);
+							background-color: color.$whiteColorOp;
+
+							@include media.mediaQuery(max-width, 811px) {
+								font-size: calc(1.4vw + 1.4vh);
+							}
+						}
+					}
+
+					.save-button {
+						@include size.proportionalObjectSize(60%, 6);
+						@include font.extendedFontConfig('RoundedMplusRegular', normal, color.$mainPlaceholderColor, calc(.8vw + .8vh), 600);
+						margin-bottom: calc(.3vw + .3vh);
+						border-radius: calc(.5vw + .5vh);
+						background-color: color.$whiteColorOp;
+						transition-property: background-color;
+						transition-duration: var.$transitionDurationShort;
+
+						@include media.mediaQuery(max-width, 811px) {
+							font-size: calc(1.6vw + 1.6vh);
+						}
+
+						&:hover {
+							background-color: color.$yellowColor;
+							cursor: pointer;
+						}
+					}
+
+					.delete-button {
+						@extend .save-button;
+
+						&:hover {
+							background-color: color.$errorRed;
+							cursor: pointer;
+						}
+					}
+
+					.out-button {
+						@include size.proportionalObjectSize(60%, 6);
+						@include font.extendedFontConfig('RoundedMplusRegular', normal, color.$mainPlaceholderColor, calc(.8vw + .8vh), 600);
+						border-radius: calc(.5vw + .5vh);
+						background-color: color.$whiteColorOp;
+						transition-property: background-color;
+						transition-duration: var.$transitionDurationShort;
+
+						@include media.mediaQuery(max-width, 811px) {
+							font-size: calc(1.6vw + 1.6vh);
+						}
+
+						&:hover {
+							background-color: color.$errorRed;
+							cursor: pointer;
+						}
+					}
+				}
+			}
+		}
+	}
+}

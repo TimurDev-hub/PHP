@@ -1,0 +1,202 @@
+@use "../../_resources/tokens/colors" as color;
+@use "../../_resources/tokens/variables" as var;
+
+@use "../../_resources/mixins/display" as display;
+@use "../../_resources/mixins/size" as size;
+@use "../../_resources/mixins/font" as font;
+@use "../../_resources/mixins/media" as media;
+
+.default {
+	@include display.flexContainer(column, nowrap, flex-start, center);
+	@include size.objectSize(100%, fit-content);
+
+	.defaul__header-section {
+		@include display.flexContainer(row, nowrap, center, flex-start);
+		@include size.objectSize(100%, fit-content);
+		background-image: url("/app/static/img/header.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+
+		.default__background {
+			@include display.flexContainer(row, nowrap, center, flex-start);
+			@include size.objectSize(100%, fit-content);
+			background: linear-gradient(to bottom right, color.$mainColorGreen, color.$mainColorBlue, color.$mainColorYellow);
+
+			.default__container {
+				@include display.flexContainer(column, nowrap, flex-start, center);
+				@include size.objectSize(75%, 100%);
+				padding: 0 calc(1vw + 1vh);
+				background-color: color.$mainBackgroundColor;
+
+				@include media.mediaQuery(max-width, 1281px) {
+					width: 80%;
+				}
+
+				@include media.mediaQuery(max-width, 961px) {
+					width: 90%;
+				}
+
+				@include media.mediaQuery(max-width, 811px) {
+					width: 95%;
+				}
+
+				.default__title {
+					@include display.flexContainer(column, nowrap, center, center);
+					@include size.objectSize(fit-content, fit-content);
+					margin: calc(5vw + 5vh) 0 calc(1vw + 1vh) 0;
+					padding: calc(.4vw + .4vh) calc(.8vw + .8vh);
+					border-radius: calc(.5vw + .5vh);
+					background-color: color.$borderColorWhiteOp;
+
+					p {
+						@include font.extendedFontConfig('RoundedMplusRegular', normal, color.$whiteColor, calc(1.8vw + 1.8vh), 500);
+
+						@include media.mediaQuery(max-width, 1281px) {
+							font-size: calc(1.6vw + 1.6vh);
+							text-align: center;
+						}
+
+						@include media.mediaQuery(max-width, 541px) {
+							font-size: calc(2.5vw + 2.5vh);
+							text-align: center;
+						}
+					}
+				}
+
+				.default__routes-menu {
+					@include display.flexContainer(row, nowrap, center, center);
+					@include size.objectSize(fit-content, fit-content);
+					margin: calc(1vw + 1vh) 0;
+					padding: calc(.5vw + .5vh) calc(1vw + 1vh);
+					border: calc(.2vw + .2vh) solid color.$borderColorWhiteOp;
+					border-radius: calc(.5vw + .5vh);
+
+					.default__inputs-form {
+						@include display.flexContainer(row, nowrap, center, center);
+						@include size.objectSize(fit-content, fit-content);
+
+						@include media.mediaQuery(max-width, 541px) {
+							flex-direction: column;
+						}
+
+						input {
+							@include size.proportionalObjectSize(calc(9vw + 9vh), 5);
+							@include font.extendedFontConfig('RoundedMplusRegular', normal, color.$blackColor, calc(.8vw + .8vh), 350);
+							margin: 0 calc(.1vw + .1vh);
+							padding: 0 calc(.5vw + .5vh);
+							background-color: color.$whiteColor;
+
+							@include media.mediaQuery(max-width, 811px) {
+								width: calc(8vw + 8vh);
+							}
+
+							@include media.mediaQuery(max-width, 541px) {
+								@include size.proportionalObjectSize(calc(25vw + 25vh), 8);
+								margin: calc(.3vw + .3vh) 0;
+								border-radius: calc(.5vw + .5vh);
+								font-size: calc(1.8vw + 1.8vh);
+								text-align: center;
+							}
+						}
+
+						.input-start {
+							@include media.mediaQuery(min-width, 541px) {
+								border-radius: calc(.5vw + .5vh) 0 0 calc(.5vw + .5vh);
+							}
+						}
+
+						.input-finish {
+							@include media.mediaQuery(min-width, 541px) {
+								border-radius: 0 calc(.5vw + .5vh) calc(.5vw + .5vh) 0;
+							}
+						}
+					}
+				}
+
+				.default__search-block {
+					@include display.flexContainer(row, nowrap, center, center);
+					@include size.objectSize(fit-content, fit-content);
+					margin: calc(1.2vw + 1.2vh) 0;
+					padding: calc(.5vw + .5vh) calc(1vw + 1vh);
+					outline: calc(.2vw + .2vh) solid color.$borderColorWhiteOp;
+					border-radius: calc(.5vw + .5vh);
+					background: linear-gradient(to bottom right, color.$searchPink, color.$searchBlue);
+
+					@include media.mediaQuery(max-width, 541px) {
+						flex-direction: column;
+					}
+
+					p {
+						@include font.extendedFontConfig('RoundedMplusRegular', normal, color.$whiteColor, calc(.9vw + .9vh), 500);
+
+						@include media.mediaQuery(max-width, 811px) {
+							font-size: calc(.7vw + .7vh);
+						}
+
+						@include media.mediaQuery(max-width, 541px) {
+							font-size: calc(1.8vw + 1.8vh);
+							text-align: center;
+							margin-bottom: calc(.8vw + .8vh);
+						}
+					}
+
+					button {
+						@include font.extendedFontConfig(monospace, italic, color.$blackColor, calc(1.1vw + 1.1vh), 500);
+						margin-left: calc(1vw + 1vh);
+						padding: calc(.3vw + .3vh) calc(1.2vw + 1.2vh);
+						border-radius: calc(.5vw + .5vh);
+						background-color: color.$yellowColor;
+						transition-property: box-shadow;
+						transition-duration: var.$transitionDurationShort;
+
+						@include media.mediaQuery(max-width, 811px) {
+							font-size: calc(.9vw + .9vh);
+						}
+
+						@include media.mediaQuery(max-width, 541px) {
+							font-size: calc(2.2vw + 2.2vh);
+						}
+
+						&:hover {
+							box-shadow: 0 0 calc(.5vw + .5vh) color.$yellowColor;
+							cursor: pointer;
+
+							@include media.mediaQuery(max-width, 950px) {
+								box-shadow: none;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.default__main-section {
+		@include display.flexContainer(row, nowrap, center, flex-start);
+		@include size.objectSize(100%, fit-content);
+
+		.default__container {
+			@include display.flexContainer(row, wrap, space-around, flex-start);
+			@include size.objectSize(75%, 100%);
+			padding: 0 calc(1vw + 1vh);
+			background-color: color.$mainBackgroundColor;
+
+			@include media.mediaQuery(max-width, 1281px) {
+				width: 80%;
+			}
+
+			@include media.mediaQuery(max-width, 961px) {
+				width: 90%;
+			}
+
+			@include media.mediaQuery(max-width, 811px) {
+				width: 95%;
+			}
+
+			@include media.mediaQuery(max-width, 541px) {
+				flex-direction: column;
+				align-items: center;
+			}
+		}
+	}
+}

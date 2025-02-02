@@ -1,0 +1,53 @@
+@use "../../_resources/tokens/colors" as color;
+@use "../../_resources/tokens/variables" as var;
+
+@use "../../_resources/mixins/display" as display;
+@use "../../_resources/mixins/size" as size;
+@use "../../_resources/mixins/font" as font;
+@use "../../_resources/mixins/media" as media;
+
+.error {
+	@include display.flexContainer(column, nowrap, flex-start, center);
+	@include size.objectSize(100vw, 100vh);
+
+	.error__header-section {
+		@include size.objectSize(100%, calc(10vw + 10vh));
+		position: fixed;
+		z-index: 1;
+		background-image: url("/app/static/img/header.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+
+		.error__background {
+			@include display.flexContainer(row, nowrap, center, center);
+			@include size.objectSize(100%, 100%);
+			background: linear-gradient(to bottom right, color.$errorRed, color.$yellowColor);
+
+			.error__content {
+				@include size.objectSize(75%, 100%);
+				padding: 0 calc(1vw + 1vh);
+				background-color: color.$mainBackgroundColor;
+			}
+		}
+	}
+
+	.error__main-section {
+		@include display.flexContainer(row, nowrap, space-around, flex-start);
+		@include size.objectSize(75%, 100%);
+		background-color: color.$mainBackgroundColor;
+
+		.error__container{
+			@include display.flexContainer(column, nowrap, center, center);
+			@include size.objectSize(75%, fit-content);
+			margin-top: calc(11vw + 11vh);
+			padding: calc(1vw + 1vh);
+			z-index: 2;
+			border: calc(.2vw + .2vh) solid color.$errorRed;
+
+			p {
+				@include font.extendedFontConfig('RoundedMplusMedium', normal, color.$errorRed, calc(1.8vw + 1.8vh), 550);
+				text-align: center;
+			}
+		}
+	}
+}

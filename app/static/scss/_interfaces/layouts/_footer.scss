@@ -1,0 +1,48 @@
+@use "../../_resources/tokens/colors" as color;
+@use "../../_resources/tokens/variables" as var;
+
+@use "../../_resources/mixins/display" as display;
+@use "../../_resources/mixins/size" as size;
+@use "../../_resources/mixins/font" as font;
+@use "../../_resources/mixins/media" as media;
+
+.footer {
+	@include display.flexContainer(row, nowrap, center, center);
+	@include size.objectSize(100vw, fit-content);
+	background-image: url("/app/static/img/header.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+
+	.footer__background {
+		@include display.flexContainer(row, nowrap, center, center);
+		@include size.objectSize(100%, 100%);
+		background: linear-gradient(to bottom right, color.$mainColorYellow, color.$mainColorBlue, color.$mainColorGreen);
+
+		.footer__container {
+			@include display.flexContainer(row, nowrap, space-between, center);
+			@include size.objectSize(75%, 100%);
+			background-color: color.$mainBackgroundColor;
+
+			.footer__contactbar {
+				@include display.flexContainer(column, nowrap, flex-start, flex-start);
+				@include size.objectSize(fit-content, 100%);
+				padding: calc(1vw + 1vh);
+
+				.footer__contactbar-item {
+					@include display.flexContainer(row, nowrap, center, center);
+					@include size.objectSize(fit-content, fit-content);
+					margin-bottom: calc(.1vw + .1vh);
+
+					img {
+						@include size.objectSize(calc(1.5vw + 1.5vh), calc(1.5vw + 1.5vh));
+						margin-right: calc(.5vw + .5vh);
+					}
+
+					a, p {
+						@include font.extendedFontConfig('RoundedMplusRegular', normal, color.$whiteColor, calc(.9vw + .9vh), 400);
+					}
+				}
+			}
+		}
+	}
+}

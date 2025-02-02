@@ -1,0 +1,22 @@
+{
+	"compilerOptions": {
+		"target": "ES6",
+		"outDir": "./app/static/scripts/js", // Путь к папке, где будут JS-файлы
+		"module": "ESNext",
+		"rootDir": "./app/static/scripts/ts", // Путь к папке, где TS-файлы
+		"sourceMap": true,
+		"strict": true,
+		"moduleResolution": "node",
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true
+	},
+
+	"include": [
+		"./app/static/scripts/ts/**/*.ts"
+	],
+
+	"exclude": [
+		"./node_modules"
+	]
+}
