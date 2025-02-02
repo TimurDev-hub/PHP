@@ -27,7 +27,7 @@ The application is in the early stages of development.
 
 # Instructions:
 1. Make sure you have up-to-date versions of PHP, Composer, Node.js, PostgreSQL installed;
-2. Copy the repository: ;
+2. Copy the repository: `git clone https://github.com/TimurDev-hub/atp_transservice.git`;
 3. Install PHP dependencies: `composer install`;
 4. Install Node.js dependencies: `npm install`;
 5. Create a file `app/src/core/config/env.php` with the following contents:
