@@ -66,6 +66,6 @@ The application is in the early stages of development.
 	```
 9. Configure your web server appropriately to run the application.
 10. To add an admin panel, go to the registration page, in the input fields specify:
-	1. *username:* admin
-	2. *email:* admin@gmail.com
+	1. *username:* `admin`
+	2. *email:* `admin@gmail.com`
 	3. Random password
