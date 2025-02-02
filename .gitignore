@@ -10,8 +10,5 @@ package-lock.json
 vendor/
 composer.lock
 
-# downloadable static files
-app/static/img/uploads/*
-
 # map-files
 *.map

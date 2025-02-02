@@ -1,4 +1,5 @@
-# Website of passenger transport company (pet project #1);
+# Website of passenger transport company
+(pet project #1);
 
 ## Description:
 The application is in the early stages of development.
