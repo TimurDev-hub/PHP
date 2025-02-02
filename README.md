@@ -56,7 +56,7 @@ The application is in the early stages of development.
 	```
 8. Create table **cards**:
 	```sql
-	CREATE TABLE users (
+	CREATE TABLE cards (
 	id SERIAL PRIMARY KEY,
 	c_route VARCHAR(255) NOT NULL UNIQUE,
 	c_num VARCHAR(255) NOT NULL UNIQUE,
