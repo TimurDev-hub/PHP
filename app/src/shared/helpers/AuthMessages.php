@@ -4,6 +4,7 @@ namespace Helpers;
 
 class AuthMessages
 {
+	/*
 	private static function displayMessage(array|string $dbMessage): ?string
 	{
 		if (empty($dbMessage)) {
@@ -39,8 +40,8 @@ class AuthMessages
 
 		return $statusString;
 	}
+	*/
 
-	// Not used
 	public static function displayMessageRecursive(array $dbMessage): ?string
 	{
 		if (empty($dbMessage)) {

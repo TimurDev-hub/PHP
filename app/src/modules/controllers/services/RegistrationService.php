@@ -46,6 +46,6 @@ class RegistrationService
 			$regStatus[] = 'Произошла ошибка!';
 		}
 
-		return AuthMessages::returnStatus(data: $regStatus);
+		return AuthMessages::displayMessageRecursive(dbMessage: $regStatus);
 	}
 }
