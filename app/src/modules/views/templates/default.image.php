@@ -62,7 +62,7 @@
 							</div>
 						<?php endforeach; ?>
 					<?php else: ?>
-						<?php echo $cards ?? null; ?>
+						<?php echo $cards; ?>
 					<?php endif; ?>
 				</div>
 			</section>

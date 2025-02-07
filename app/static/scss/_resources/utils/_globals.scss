@@ -35,3 +35,16 @@ body {
 		line-height: 130%;
 	}
 }
+
+.route-load-error {
+	@include display.flexContainer(row, nowrap, center, center);
+	@include size.proportionalObjectSize(100%, 4);
+	margin: calc(1vw + 1vh) 0;
+	border-radius: calc(.5vw + .5vh);
+	background-color: color.$borderColorWhite;
+
+	h3 {
+		@include font.extendedFontConfig('RoundedMplusMedium', normal, color.$blackColor, calc(2.7vw + 2.7vh), 600);
+		text-align: center;
+	}
+}

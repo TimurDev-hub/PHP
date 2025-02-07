@@ -9,13 +9,19 @@ use Exception;
 
 class RoutesService
 {
-	public static function renderCards(): array|string|bool|null
+	public static function renderCards(): array|string
 	{
 		try {
 			$pdo = Database::initPDO();
 			$card = new CardModel();
 
-			return $card->loadRoutes(pdo: $pdo);
+			$cards = $card->loadRoutes(pdo: $pdo);
+
+			if (empty($cards)) {
+				return '<div class="route-load-error"><h3>Не удалось загрузить ассортимент.</h3></div>';
+			}
+
+			return $cards;
 
 		} catch (Exception | PDOException) {
 			return '<h3>Не удалось загрузить ассортимент.</h3>';

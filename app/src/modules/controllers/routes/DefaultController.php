@@ -9,7 +9,7 @@ class DefaultController
 {
 	public function requireView(): void
 	{
-		$cards = RoutesService::renderCards() ?? [];
+		$cards = RoutesService::renderCards();
 
 		$navbarLinks = HeaderController::requireNavbar();
 
