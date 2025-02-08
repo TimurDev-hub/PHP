@@ -29,18 +29,16 @@ class AuthMessages
 
 		return "<div class=\"global__process-messages\"><p class=\"messages__standart\">STATUS: " . $dbMessage . '</p></div>';
 	}
+	*/
 
-	public static function returnStatus(array $data): ?string
+	public static function returnStatus(array $messages): ?string
 	{
-		$statusString = '';
-
-		foreach ($data as $message) {
-			$statusString .= self::displayMessage(dbMessage: $message);
+		if (!empty($messages)) {
+			return "<div class=\"global__process-messages\">" . self::displayMessageRecursive(dbMessage: $messages) . "</div>";
 		}
 
-		return $statusString;
+		return null;
 	}
-	*/
 
 	public static function displayMessageRecursive(array $dbMessage): ?string
 	{
@@ -58,6 +56,6 @@ class AuthMessages
 			}
 		}
 
-		return "<div class=\"global__process-messages\">{$stringMessage}</div>";
+		return $stringMessage;
 	}
 }

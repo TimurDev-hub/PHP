@@ -17,7 +17,7 @@
 				</span>
 				<span class="footer__contactbar-item">
 					<img src="/app/static/img/social-icons/mail.png" alt="Mail">
-					<p>atp_transservis61@gmail.com</p>
+					<p>atp_transservice61@gmail.com</p>
 				</span>
 			</div>
 		</div>

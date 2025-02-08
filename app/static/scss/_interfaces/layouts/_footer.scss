@@ -8,10 +8,12 @@
 
 .footer {
 	@include display.flexContainer(row, nowrap, center, center);
-	@include size.objectSize(100vw, fit-content);
+	@include size.objectSize(100%, fit-content);
 	background-image: url("/app/static/img/header.png");
 	background-size: cover;
 	background-repeat: no-repeat;
+	position: relative;
+	bottom: 0;
 
 	.footer__background {
 		@include display.flexContainer(row, nowrap, center, center);
@@ -22,6 +24,18 @@
 			@include display.flexContainer(row, nowrap, space-between, center);
 			@include size.objectSize(75%, 100%);
 			background-color: color.$mainBackgroundColor;
+
+			@include media.mediaQuery(max-width, 1281px) {
+				width: 80%;
+			}
+
+			@include media.mediaQuery(max-width, 961px) {
+				width: 90%;
+			}
+
+			@include media.mediaQuery(max-width, 811px) {
+				width: 95%;
+			}
 
 			.footer__contactbar {
 				@include display.flexContainer(column, nowrap, flex-start, flex-start);
@@ -34,12 +48,20 @@
 					margin-bottom: calc(.1vw + .1vh);
 
 					img {
-						@include size.objectSize(calc(1.5vw + 1.5vh), calc(1.5vw + 1.5vh));
+						@include size.proportionalObjectSize(calc(1.5vw + 1.5vh), 1);
 						margin-right: calc(.5vw + .5vh);
+
+						@include media.mediaQuery(max-width, 811px) {
+							width: calc(3vw + 3vh);
+						}
 					}
 
 					a, p {
 						@include font.extendedFontConfig('RoundedMplusRegular', normal, color.$whiteColor, calc(.9vw + .9vh), 400);
+
+						@include media.mediaQuery(max-width, 1025px) {
+							font-size: calc(1.8vw + 1.8vh);
+						}
 					}
 				}
 			}

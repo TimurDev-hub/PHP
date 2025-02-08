@@ -19,7 +19,7 @@
 			</section>
 			<section class="error__main-section">
 				<div class="error__container">
-					<p><?php echo $error ?? null; ?></p>
+					<p><?php echo $error; ?></p>
 				</div>
 			</section>
 		</main>

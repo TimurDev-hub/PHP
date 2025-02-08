@@ -180,6 +180,7 @@
 			@include size.objectSize(75%, 100%);
 			padding: 0 calc(1vw + 1vh);
 			background-color: color.$mainBackgroundColor;
+			min-height: 60vh;
 
 			@include media.mediaQuery(max-width, 1281px) {
 				width: 80%;
@@ -195,6 +196,7 @@
 
 			@include media.mediaQuery(max-width, 541px) {
 				flex-direction: column;
+				justify-content: flex-start;
 				align-items: center;
 			}
 		}

@@ -38,8 +38,9 @@ body {
 
 .route-load-error {
 	@include display.flexContainer(row, nowrap, center, center);
-	@include size.proportionalObjectSize(100%, 4);
+	@include size.proportionalObjectSize(100%, 5);
 	margin: calc(1vw + 1vh) 0;
+	padding: calc(.5vw + .5vh);
 	border-radius: calc(.5vw + .5vh);
 	background-color: color.$borderColorWhite;
 

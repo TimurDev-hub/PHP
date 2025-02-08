@@ -93,7 +93,7 @@
 					transition-duration: var.$transitionDurationShort;
 
 					@include media.mediaQuery(max-width, 811px) {
-						font-size: calc(1.8vw + 1.8vh);
+						font-size: calc(2.7vw + 2.7vh);
 					}
 
 					&:hover {
@@ -106,9 +106,9 @@
 		.header__burger-button {
 			display: none;
 			@include size.proportionalObjectSize(calc(3vw + 3vh), 1);
+			margin: 0 calc(2vw + 2vh);
 			z-index: 6;
 			position: relative;
-			margin: 0 calc(2vw + 2vh);
 			background-color: transparent;
 			cursor: pointer;
 

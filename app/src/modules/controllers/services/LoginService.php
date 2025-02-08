@@ -51,6 +51,6 @@ class LoginService
 			$logStatus[] = 'Произошла ошибка!';
 		}
 
-		return AuthMessages::displayMessageRecursive(dbMessage: $logStatus);
+		return AuthMessages::returnStatus(messages: $logStatus);
 	}
 }

@@ -47,7 +47,7 @@ class ProfileService
 			$renameStatus[] = 'Что-то пошло не так!';
 		}
 
-		return AuthMessages::displayMessageRecursive(dbMessage: $renameStatus);
+		return AuthMessages::returnStatus(messages: $renameStatus);
 	}
 
 	public static function pushNewRoute(array $cardData): ?string
@@ -80,7 +80,7 @@ class ProfileService
 			$cardStatus[] = 'Что-то пошло не так!';
 		}
 
-		return AuthMessages::displayMessageRecursive(dbMessage: $cardStatus);
+		return AuthMessages::returnStatus(messages: $cardStatus);
 	}
 
 	public static function updateRoute(array $cardData): ?string
@@ -111,7 +111,7 @@ class ProfileService
 			$routeStatus[] = 'Что-то пошло не так!';
 		}
 
-		return AuthMessages::displayMessageRecursive(dbMessage: $routeStatus);
+		return AuthMessages::returnStatus(messages: $routeStatus);
 	}
 
 	public static function findRouteById(array $cardData): array|string|null|bool
@@ -138,7 +138,7 @@ class ProfileService
 			$routeStatus[] = 'Что-то пошло не так!';
 		}
 
-		return AuthMessages::displayMessageRecursive(dbMessage: $routeStatus);
+		return AuthMessages::returnStatus(messages: $routeStatus);
 	}
 
 	public static function deleteRouteById(array $cardData): ?string
@@ -169,6 +169,6 @@ class ProfileService
 			$routeStatus[] = 'Что-то пошло не так!';
 		}
 
-		return AuthMessages::displayMessageRecursive(dbMessage: $routeStatus);
+		return AuthMessages::returnStatus(messages: $routeStatus);
 	}
 }
