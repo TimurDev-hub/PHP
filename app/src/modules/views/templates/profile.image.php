@@ -91,8 +91,15 @@
 							</div>
 						</div>
 					<?php else: ?>
-						<div class="user__routebar">
-							<h2>Действия</h2>
+						<div class="profile__user-bar">
+							<h2>Забронированный билет</h2>
+							<form action="/profile" method="post" class="profile__inputs-form">
+								<input type="text" name="tRoute" value="<?php echo $ticketInfo[0] ?? null ?>" class="input-normal">
+								<input type="text" name="tNum" value="<?php echo $ticketInfo[0] ?? null ?>" class="input-normal">
+								<input type="text" name="tId" value="<?php echo $ticketInfo[0] ?? null ?>" class="input-normal">
+								<input type="text" name="cardId" value="<?php echo $ticketInfo[0] ?? null ?>" hidden>
+								<input type="submit" value="Отменить" class="out-button">
+							</form>
 						</div>
 					<?php endif; ?>
 				</div>

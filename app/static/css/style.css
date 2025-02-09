@@ -936,6 +936,20 @@ body {
     width: 95%;
   }
 }
+.profile .profile__main-section .profile__main-container .profile__user-bar h2 {
+  font-family: "RoundedMplusRegular", sans-serif;
+  font-style: normal;
+  color: rgb(255, 255, 255);
+  font-size: calc(0.95vw + 0.95vh);
+  font-weight: 600;
+  margin-bottom: calc(0.3vw + 0.3vh);
+}
+@media (max-width: 811px) {
+  .profile .profile__main-section .profile__main-container .profile__user-bar h2 {
+    font-size: calc(1.8vw + 1.8vh);
+    margin-bottom: calc(0.6vw + 0.6vh);
+  }
+}
 .profile .profile__main-section .profile__main-container .profile__user-bar .profile__inputs-form {
   display: flex;
   flex-direction: column;
@@ -981,6 +995,26 @@ body {
 @media (max-width: 811px) {
   .profile .profile__main-section .profile__main-container .profile__user-bar .profile__inputs-form .profile__inputs-form--line-container input[type=text], .profile .profile__main-section .profile__main-container .profile__user-bar .profile__inputs-form .profile__inputs-form--line-container input[type=email] {
     font-size: calc(1.5vw + 1.5vh);
+  }
+}
+.profile .profile__main-section .profile__main-container .profile__user-bar .profile__inputs-form .input-normal {
+  width: 93%;
+  aspect-ratio: 9;
+  font-family: "RoundedMplusRegular", sans-serif;
+  font-style: normal;
+  color: rgba(0, 0, 0, 0.66);
+  font-size: calc(0.7vw + 0.7vh);
+  font-weight: 400;
+  margin-bottom: calc(0.3vw + 0.3vh);
+  padding-left: calc(0.7vw + 0.7vh);
+  border: calc(0.2vw + 0.2vh) solid transparent;
+  border-radius: calc(0.5vw + 0.5vh);
+  background-color: rgba(255, 255, 255, 0.75);
+}
+@media (max-width: 811px) {
+  .profile .profile__main-section .profile__main-container .profile__user-bar .profile__inputs-form .input-normal {
+    font-size: calc(1.4vw + 1.4vh);
+    margin-bottom: calc(0.6vw + 0.6vh);
   }
 }
 .profile .profile__main-section .profile__main-container .profile__user-bar .profile__inputs-form input[type=submit] {
@@ -1429,7 +1463,7 @@ body {
   font-size: calc(0.9vw + 0.9vh);
   font-weight: 400;
 }
-@media (max-width: 811px) {
+@media (max-width: 1025px) {
   .footer .footer__background .footer__container .footer__contactbar .footer__contactbar-item a, .footer .footer__background .footer__container .footer__contactbar .footer__contactbar-item p {
     font-size: calc(1.8vw + 1.8vh);
   }

@@ -53,7 +53,7 @@
 										Цена: <?php echo $card['c_price'] ?? null; ?>
 									</p>
 									<form class="card__button-wrapper" action="/default" method="post">
-										<input name="cardId" type="text" value="<?php echo $card['id'] ?? null; ?>" hidden required>
+										<input name="ticketId" type="text" value="<?php echo $card['id'] ?? null; ?>" hidden required>
 										<button type="submit" class="card__button">Купить!</button>
 									</form>
 									<?php if (isset($_SESSION['admin'])): ?>

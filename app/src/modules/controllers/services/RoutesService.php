@@ -26,6 +26,5 @@ class RoutesService
 		} catch (Exception | PDOException) {
 			return '<div class="route-load-error"><h3>Не удалось загрузить ассортимент.</h3></div>';
 		}
-
 	}
 }

@@ -113,6 +113,16 @@
 					width: 95%;
 				}
 
+				h2 {
+					@include font.extendedFontConfig('RoundedMplusRegular', normal, color.$whiteColor, calc(.95vw + .95vh), 600);
+					margin-bottom: calc(.3vw + .3vh);
+
+					@include media.mediaQuery(max-width, 811px) {
+						font-size: calc(1.8vw + 1.8vh);
+						margin-bottom: calc(.6vw + .6vh);
+					}
+				}
+
 				.profile__inputs-form {
 					@include display.flexContainer(column, nowrap, center, center);
 					@include size.objectSize(100%, fit-content);
@@ -138,6 +148,21 @@
 							@include media.mediaQuery(max-width, 811px) {
 								font-size: calc(1.5vw + 1.5vh);
 							}
+						}
+					}
+
+					.input-normal {
+						@include size.proportionalObjectSize(93%, 9);
+						@include font.extendedFontConfig('RoundedMplusRegular', normal, color.$mainPlaceholderColor, calc(.7vw + .7vh), 400);
+						margin-bottom: calc(.3vw + .3vh);
+						padding-left: calc(.7vw + .7vh);
+						border: calc(.2vw + .2vh) solid transparent;
+						border-radius: calc(.5vw + .5vh);
+						background-color: color.$whiteColorOp;
+
+						@include media.mediaQuery(max-width, 811px) {
+							font-size: calc(1.4vw + 1.4vh);
+							margin-bottom: calc(.6vw + .6vh);
 						}
 					}
 	
