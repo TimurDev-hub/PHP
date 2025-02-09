@@ -94,6 +94,17 @@ class CardModel
 		}
 	}
 
+	public function selectImgById(PDO $pdo, string $id): array|null|bool
+	{
+		try {
+			$stmt = $pdo->prepare("SELECT c_img FROM cards WHERE id = ?");
+			$stmt->execute([$id]);
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		} catch (Exception) {
+			throw new PDOException();
+		}
+	}
+
 	public static function saveUploadedFile(): string|false
 	{
 		$allowedTypes = ['image/jpeg', 'image/png', 'image/jpg'];
@@ -114,6 +125,17 @@ class CardModel
 			return "/app/static/img/uploads/{$filename}";
 		} else {
 			return false;
+		}
+	}
+
+	public static function deleteUploadedFile(string $path): void
+	{
+		$allowedTypes = ['.jpeg', '.png', '.jpg'];
+		
+		$file = str_replace('/app/static/img/uploads/', __DIR__ . '/../../../static/img/uploads/', $path);
+
+		foreach ($allowedTypes as $type) {
+			if (strpos($file, $type) !== false) unlink($file);
 		}
 	}
 }

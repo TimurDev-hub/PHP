@@ -25,6 +25,10 @@ class ErrorsLogger
 	{
 		$errorHeader = ErrorsLogger::getHeader();
 		$errorInfo = ErrorsLogger::getInfo(exc: $exc);
+
+		if (strpos($errorInfo, 'static') !== false) return;
+		if (strpos($errorInfo, '/favicon.ico') !== false) return;
+
 		$logFile = ErrorsLogger::getLogFilePath();
 
 		$errorMessage = $errorHeader . $errorInfo . PHP_EOL;

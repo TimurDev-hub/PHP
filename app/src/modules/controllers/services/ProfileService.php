@@ -67,6 +67,11 @@ class ProfileService
 
 			$img = CardModel::saveUploadedFile();
 
+			if ($img === false) {
+				$cardStatus[] = 'Произошла ошибка!';
+				return null;
+			}
+
 			if ($card->pushNewRoute(pdo: $pdo, img: $img, route: $clearedCardData['setRoute'], num: $clearedCardData['setNum'], time: $clearedCardData['setTime'], price: $clearedCardData['setPrice'])) {
 				$cardStatus[] = 'Маршрут добавлен!';
 			} else {
@@ -156,7 +161,10 @@ class ProfileService
 				throw new ValidationError();
 			}
 
+			$img = $card->selectImgById(pdo: $pdo, id: $clearedCardData['deleteRoute']);
+
 			if ($card->deleteRouteById(pdo: $pdo, id: $clearedCardData['deleteRoute'])) {
+				$card->deleteUploadedFile(path: $img[0]['c_img']);
 				$routeStatus[] = 'Маршрут удалён!';
 			} else {
 				$routeStatus[] = 'Произошла ошибка!';

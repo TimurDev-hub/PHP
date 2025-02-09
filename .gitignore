@@ -12,3 +12,6 @@ composer.lock
 
 # map-files
 *.map
+
+# jpg-files
+*.jpg
