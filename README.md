@@ -1,8 +1,12 @@
 # Website of passenger transport company
-(pet project #1);
 
 ## Description:
-The application is in the early stages of development.
+The application is in the late stages of development.
+
+This is my first PET project that I decided to put on public display.
+I consciously decided to use only vanilla PHP capabilities during development. You will not find any third-party libraries or anything like that in the code of my project.
+In my opinion, before sitting down to study any library or even more so a framework, you need to thoroughly study the capabilities of the pure language itself. You need to reach such a level of knowledge that you can do everything in vanilla language that is done by any library or any framework
+Only after that should you move on to the next level.
 
 ## Available functions (02.02.2025):
 * User registration;
@@ -69,3 +73,5 @@ The application is in the early stages of development.
 	1. **username:** `admin`
 	2. **email:** `admin@gmail.com`
 	3. Random password
+
+## As far as possible, I will introduce new features and improve old ones.
